@@ -4,7 +4,12 @@
 
 This is Twitter's [`WordCountJob`] [wordcount] example for [Scalding] [scalding] adapted to run on Hadoop. It also includes ScalaTest tests. This project is ported directly from Snowplow Analytics's [Scalding Example Project](https://github.com/snowplow/scalding-example-project).
 
-_See also:_ [Spark Example Project](https://github.com/soulmachine/spark-example-project)
+_See also:_ 
+
+* [JRuby Example](https://github.com/soulmachine/JRubyExample)
+* [Jython Example](https://github.com/soulmachine/JythonExample)
+* [Jparsec Example](https://github.com/soulmachine/JparsecExample)
+* [Spark Example Project](https://github.com/soulmachine/spark-example-project)
 
 ## Building
 
