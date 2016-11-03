@@ -21,7 +21,7 @@ Assuming you already have SBT installed:
 
 The 'fat jar' is now available as:
 
-    target/scalding-example-project-1.0.jar
+    target/scalding-example_2.11-1.0.0-SNAPSHOT.jar
 
 ## Unit testing
 
@@ -35,4 +35,4 @@ The `assembly` command above runs the test suite - but you can also run this man
 
 ## Submit the job to Hadoop
 
-    yarn jar scalding-example-1.0.jar me.soulmachine.WordCountJob --hdfs --input wordcount-test/input --output wordcount-test/output
+    yarn jar scalding-example_2.11-1.0.0-SNAPSHOT.jar me.soulmachine.WordCountJob --hdfs --input wordcount-test/input --output wordcount-test/output

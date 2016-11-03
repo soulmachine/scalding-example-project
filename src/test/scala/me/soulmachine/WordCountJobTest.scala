@@ -10,19 +10,23 @@
  */
 package me.soulmachine
 
-// Hadoop
-import org.apache.hadoop
+import com.twitter.scalding._
+import org.scalatest.{ Matchers, WordSpec }
 
-// Scalding
-import com.twitter.scalding.Tool
-
-/**
- * Entrypoint for Hadoop to kick off the job.
- *
- * Borrowed from com.twitter.scalding.Tool
- */
-object JobRunner {
-  def main(args : Array[String]) {
-    hadoop.util.ToolRunner.run(new hadoop.conf.Configuration, new Tool, args)
+class WordCountJobTest extends WordSpec with Matchers {
+  "A WordCount job" should {
+    JobTest(new WordCountJob(_))
+      .arg("input", "inputFile")
+      .arg("output", "outputFile")
+      .source(TextLine("inputFile"), List((0, "hack hack hack and hack")))
+      .sink[(String, Int)](TypedTsv[(String, Long)]("outputFile")){ outputBuffer =>
+        val outMap = outputBuffer.toMap
+        "count words correctly" in {
+          outMap("hack") shouldBe 4
+          outMap("and") shouldBe 1
+        }
+      }
+      .run
+      .finish
   }
 }
